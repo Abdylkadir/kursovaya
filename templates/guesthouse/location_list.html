@@ -1,0 +1,40 @@
+
+{% extends 'guesthouse/base.html' %} 
+
+{% block header %} main-banner-ak {% endblock header %}
+{% block location %}
+        <section class="ab-info-main py-md-5 py-4 editContent" style="padding-left: 3rem; padding-right: 3rem; padding-top: 0;">
+            <div class="container-fluid py-md-3">
+                <div class="row">
+                    <div class="left-ads-display col-lg-12">
+                        <div class="row">
+                            {% for location in location_list %}
+                                <div class="col-md-4 product-men product-men-ak">
+                                    <div class="product-shoe-info editContent text-center mt-lg-4">
+                                        <div class="men-thumb-item men-thumb-item-ak">
+                                            <img src="{{ location.imageLocation.url }}" class="img-fluid-ak" alt="">
+                                        </div>
+                                        <div class="item-info-product">
+                                            <h4 class="">
+                                                <a href="{{ location.get_absolute_url }}" class="editContent">{{ location.title }}</a>
+                                            </h4>
+
+                                            <div class="product_price">
+                                                <div class="grid-price">
+                                                    <span class="money editContent">«Наслаждайтесь отдыхом!»</span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-img-right mt-4 text-right bg bg1" >
+                    {% include 'include/pagination.html' %}
+                </div>
+            </div>
+        </section>   
+{% endblock location %}

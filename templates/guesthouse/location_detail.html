@@ -1,0 +1,177 @@
+{% extends 'guesthouse/base.html' %}
+{% load static i18n %}
+
+{% block header %} main-banner-ak {% endblock header %}
+
+{% block container %}
+        <div class="container py-md-3">
+{% endblock container %}
+{% block sidebar %}
+        <div class="side-bar col-lg-4">
+{% endblock sidebar %}
+
+{% block location %}
+
+<div class="left-ads-display col-lg-8">
+    <div class="row">
+        <div class="border-none desc1-left col-md-6">
+            <img src="{{ location.imageLocation.url }}" class="img-fluid" alt="">
+        </div>
+        <div class="desc1-right col-md-6 pl-lg-4">
+            <h3 class="editContent" style="outline: none; cursor: inherit;">
+                {{ location.title }}
+            </h3>
+            <h5 class="editContent"></h5>
+            <ul>
+                <li style="list-style: none">
+                    <span><b>Мест: </b> {{ location.count }}</span></li>
+                <li style="list-style: none">
+                    <span><b>{% trans 'Гид'%} :</b>
+                        {% for guide in location.guides.all %}
+                            {{ guide.name }}
+                        {% endfor %}
+                    </span>
+                </li>
+                <li style="list-style: none"><span><b>{% trans 'Повар'%}: </b>
+                    {% for cooker in location.cookers.all %}
+                        {{ cooker.name }}
+                    {% endfor %}
+                </span>
+                </li>
+                <li style="list-style: none"><span><b>{% trans 'Жанр'%}: </b>
+                    {% for genre in location.genres.all %}
+                        {{ genre.name }}
+                    {% endfor %}
+                    </span>
+                </li>
+                <li style="list-style: none">
+                    <span><b>Цена:</b> ${{ location.price }}</span></li>
+                <li style="list-style: none">
+                    <a href="#"><b>Рейтинг:</b>
+                        <span class="fa fa-star" aria-hidden="true"
+                              style="outline: none; cursor: inherit;"></span>
+                        <span class="fa fa-star" aria-hidden="true"
+                              style="outline: none; cursor: inherit;"></span>
+                        <span class="fa fa-star" aria-hidden="true"
+                              style="outline: none; cursor: inherit;"></span>
+                        <span class="fa fa-star" aria-hidden="true"
+                              style="outline: none; cursor: inherit;"></span>
+                        <span class="fa fa-star" aria-hidden="true"
+                              style="outline: none; cursor: inherit;"></span>
+                        <span class="editContent"
+                              style="outline: none; cursor: inherit;">5.0</span>
+                    </a>
+                </li>
+                <div class="share-desc">
+                    <div class="share">
+                        <h4 class="editContent"
+                            style="outline: none; cursor: inherit;">
+                            Поделиться:</h4>
+                        <ul class="w3layouts_social_list list-unstyled">
+                            <li>
+                                <a href="#" class="w3pvt_facebook editContent"
+                                   style="outline: none; cursor: inherit;">
+                                <span class="fa fa-facebook-f"
+                                      style="outline: none; cursor: inherit;"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="w3pvt_twitter editContent"
+                                   style="outline: none; cursor: inherit;">
+                                <span class="fa fa-twitter"
+                                      style="outline: none; cursor: inherit;"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="w3pvt_dribble editContent"
+                                   style="outline: none; cursor: inherit;">
+                                <span class="fa fa-dribbble"
+                                      style="outline: none; cursor: inherit;"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+        </div>
+    </div>
+    <div class=" sub-para-w3layouts mt-5">
+
+        <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
+            О локации {{ location.title }}
+        </h3>
+        <p class="editContent" style="outline: none; cursor: inherit;">
+            {{ location.description }}
+        </p>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="single-form-left">
+            <div class="contact-single">
+                <h3 class="editContent" style="outline: none; cursor: inherit;">
+                    <span class="sub-tittle editContent"
+                          style="outline: none; cursor: inherit;"></span>Оставить
+                    отзыв</h3>
+                <form action="#" method="get" class="mt-4">
+                    <div class="form-group editContent"
+                         style="outline: none; cursor: inherit;">
+                        <label for="contactcomment" class="editContent"
+                               style="outline: none; cursor: inherit;">Ваш
+                            комментарий
+                            *</label>
+                        <textarea class="form-control border" rows="5"
+                                  id="contactcomment" required=""></textarea>
+                    </div>
+                    <div class="d-sm-flex">
+                        <div class="col-sm-6 form-group p-0 editContent"
+                             style="outline: none; cursor: inherit;">
+                            <label for="contactusername" class="editContent"
+                                   style="outline: none; cursor: inherit;">Имя
+                                *</label>
+                            <input type="text" class="form-control border"
+                                   id="contactusername" required="">
+                        </div>
+                        <div class="col-sm-6 form-group ml-sm-3 editContent"
+                             style="outline: none; cursor: inherit;">
+                            <label for="contactemail" class="editContent"
+                                   style="outline: none; cursor: inherit;">Email
+                                *</label>
+                            <input type="email" class="form-control border"
+                                   id="contactemail" required="">
+                        </div>
+                    </div>
+                    <button type="submit"
+                            class="mt-3 btn btn-success btn-block py-3"
+                            style="outline: none; cursor: inherit;">Отправить
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="media py-5">
+            <img src="../../static/img/te2.jpg" class="mr-3 img-fluid" alt="image"
+                 style="outline: none; cursor: inherit;">
+            <div class="media-body mt-4">
+                <h5 class="mt-0 editContent"
+                    style="outline: none; cursor: inherit;">Дима Донской</h5>
+                <p class="mt-2 editContent" style="outline: none; cursor: inherit;">
+                    Большой выбор завтраков! Безглютеновые десерты, без сахара - это прекрасно. Были семьей из 5 человек и всем все понравилось. Обслуживание ненавязчивое и легкое, есть детская комната.
+                </p>
+                <div class="media mt-5 editContent"
+                     style="outline: none; cursor: inherit;">
+                    <a class="pr-3" href="#">
+                        <img src="../../static/img/te1.jpg" class="img-fluid "
+                             alt="image" style="outline: none; cursor: inherit;">
+                    </a>
+                    <div class="media-body">
+                        <h5 class="mt-0 editContent"
+                            style="outline: none; cursor: inherit;">Маша Смирнова</h5>
+                        <p class="mt-2 editContent"
+                           style="outline: none; cursor: inherit;">Большой выбор завтраков! Безглютеновые десерты, без сахара - это прекрасно. Были семьей из 5 человек и всем все понравилось. Обслуживание ненавязчивое и легкое, есть детская комната.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock location %}
